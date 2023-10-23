@@ -17,19 +17,45 @@ namespace DelegateTask
                new Person("Leyla","Shafi",18),
            };
 
-            foreach (Person person in people.FindAll(p => p.Name == "Kamil"))
+            //foreach (Person person in people.FindAll(p => p.Name == "Kamil"))
+            //{
+            //    Console.WriteLine(person);
+            //}
+
+            //foreach (Person person in people.FindAll(p => p.Surname.EndsWith("ova") || p.Surname.EndsWith("ov")))
+            //{
+            //    Console.WriteLine(person);
+            //}
+
+            //foreach (Person person in people.FindAll(p => p.Age >= 20))
+            //{
+            //    Console.WriteLine(person);
+            //}
+
+
+
+
+            //Task2
+
+            List<Exam> exams = new List<Exam>();
+            exams.Add(new Exam("Programming", 2));
+            exams.Add(new Exam("Data Structure", 3));
+            exams.Add(new Exam("Cloud Technology", 4));
+            exams.Add(new Exam("General English", 1));
+
+            foreach (Exam e in exams.FindAll(e => DateTime.Now.Subtract(e.StartDate).TotalDays <= 7))
             {
-                Console.WriteLine(person);
+                Console.WriteLine(e);
             }
 
-            foreach (Person person in people.FindAll(p => p.Surname.EndsWith("ova") || p.Surname.EndsWith("ov")))
+            foreach (Exam e in exams.FindAll(e => e.ExamDuration >= 2))
             {
-                Console.WriteLine(person);
+                Console.WriteLine(e);
             }
 
-            foreach (Person person in people.FindAll(p => p.Age >= 20))
+            foreach (Exam e in exams.FindAll(e => e.EndDate > DateTime.Now))
             {
-                Console.WriteLine(person);
+                Console.WriteLine(e);
             }
         }
     }
